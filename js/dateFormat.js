@@ -7,7 +7,7 @@ class dateFormat{
      * @return {Array} dateArr
      */
     async getAllDate(start,end){
-        let startTime=new Date(start),endTime=new Date(end);
+        let startTime=new Date(start);
         let dateArr=[];
         while( (end - start) >0){
             let  year = startTime.getFullYear();
