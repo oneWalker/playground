@@ -1,0 +1,6 @@
+meta:
+  title: "dumbo-class"
+  buildscript: "build.sh"
+  serviceport: 8080
+  serviceid: 
+  language: "golang"

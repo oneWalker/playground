@@ -1,0 +1,6 @@
+meta:
+  title: "bdms-backend"
+  buildscript: "build.sh"
+  serviceport: 80
+  serviceid: 
+  language: "nodejs"
