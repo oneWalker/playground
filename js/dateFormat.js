@@ -1,3 +1,5 @@
+'use strict';
+const moment= require('moment')
 
 class dateFormat{
     /**
@@ -57,5 +59,55 @@ class dateFormat{
         dateArr.push(endTime);
         return dateArr;
     }
+    /**
+     * 通过出生年月日计算年龄
+     * @param {Number} birthYear 1990
+     * @param {Number} birthMonth 10
+     * @param {Number} birthDay 10
+     */
+     async getAge(birthYear,birthMonth,birthDay){
+        const nowDate = new Date();
+        const nowYear = nowDate.getFullYear(),nowMonth = nowDate.getMonth()+1,nowDay = nowDate.getDate();
+        let age = nowYear - birthYear;
+        if (nowMonth<birthMonth) {
+            age -= 1;
+        }else if((nowMonth == birthMonth)&&(nowDay<birthDay)){
+            age -= 1;
+        }
+        return age;
+    }
+
+    /**
+     * 计算现在的年龄
+     * @param {String} birthday 2019-06-18
+     * @returns {Object}{ years: 25, months: 2 }
+     */
+    async getAgeByMoment(birthday){
+        let diff_months = moment().diff(moment(birthday), 'months');
+        return { years: parseInt(diff_months / 12), months: diff_months % 12 };
+    }
+
+    /**
+     * 计算两个日期之间相差的天数
+     * @param {String} date1 
+     * @param {String} date2 
+     * date1和date2是2019-06-18格式 
+     * @returns {Number} 5226
+     */
+    async getDaysDistance(date1, date2) {     
+        //parse() 是 Date 的一个静态方法 , 所以应该使用 Date.parse() 来调用，而不是作为 Date 的实例方法。返回该日期距离 1970/1/1 午夜时间的毫秒数
+        date1 = Date.parse(date1);
+        date2 = Date.parse(date2);
+        //计算两个日期之间相差的毫秒数的绝对值
+        var ms= Math.abs(date2 - date1);
+        //毫秒数除以一天的毫秒数,就得到了天数
+        var days = Math.floor(ms / (24 * 3600 * 1000));
+        return days ;
+    };
+
+    async getDaysByMoment(date1,date2){
+        return moment(date1).diff(moment(date2), 'days');
+    }
+
 }
 module.exports = dateFormat;

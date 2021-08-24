@@ -53,23 +53,5 @@ class utils{
 		s = Math.round(s);
 		return s;
     }
-
-    /**
-     * 通过出生年月日计算年龄
-     * @param {Number} birthYear 1990
-     * @param {Number} birthMonth 10
-     * @param {Number} birthDay 10
-     */
-    async getAge(birthYear,birthMonth,birthDay){
-        const nowDate = new Date();
-        const nowYear = nowDate.getFullYear(),nowMonth = nowDate.getMonth()+1,nowDay = nowDate.getDate();
-        let age = nowYear - birthYear;
-        if (nowMonth<birthMonth) {
-            age -= 1;
-        }else if((nowMonth == birthMonth)&&(nowDay<birthDay)){
-            age -= 1;
-        }
-        return age;
-    }
 }
 module.exports = utils;
