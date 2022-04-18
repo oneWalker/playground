@@ -1,5 +1,5 @@
-const fs = require('fs'),
-const child_process = require('child_process'),
+const fs = require('fs')
+const child_process = require('child_process')
 class system{
     //执行shell脚本
     async execShell(cmd) {
