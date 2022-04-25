@@ -8,4 +8,4 @@ practice in javascript(especially in Node.js), java, python, usage and some thir
 
 - [OPS](https://github.com/oneWalker/playground/tree/master/ops)
 
-- [Java项目相关](https://github.com/oneWalker/JavaLearn)
+- [Java项目相关](https://github.com/oneWalker/JavaLearn):不在本项目，在其他项目中
