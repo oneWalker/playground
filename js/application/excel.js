@@ -88,13 +88,11 @@ class excel{
         for (const key in map) {
             if (map.hasOwnProperty(key)) {
                 const element = map[key];
-                res.push(
-                    {
+                res.push({
                         header:element,
                         key:key,
                         width:15 //默认15个字符
-                    }
-                );
+                    });
                 
             }
         }
