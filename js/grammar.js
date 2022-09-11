@@ -24,7 +24,7 @@ sleep1(1000, () => {
 })
 
 
-//3.ES6下通过Promise
+//3.ES6下通过Promise,不用then也可以使用await进行调用
 const sleep = time => {
     return new Promise(resolve => setTimeout(resolve,time));
 } 
@@ -44,7 +44,7 @@ function sleep(time) {
  	 setTimeout(resolve,time)
  ) } 
  
- async function output() {
+async function output() {
 	let out = await sleep(1000); 
 	console.log(1); 
 	return out;
