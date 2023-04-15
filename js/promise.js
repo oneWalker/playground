@@ -12,14 +12,15 @@ function resolvePromise(promise2,x,resolve,reject){
             let then = x.then;//取x的then方法 {then:{}}
             if(typeof then === 'function'){//如果then是函数就认为他是promise
                 //call第一个参数是this，后面的是成功的回调和失败的回调
-                then.call(x,y => {//如果Y是promise就继续递归promise
-                    if(called) return;
-                    called = true;
-                    resolvePromise(promise2,y,resolve,reject)
-                },r => { //只要失败了就失败了
-                    if(called) return;
-                    called = true;
-                    reject(r);  
+                then.call(
+                    x,y => {//如果Y是promise就继续递归promise
+                        if(called) return;
+                        called = true;
+                        resolvePromise(promise2,y,resolve,reject)
+                    },r => { //只要失败了就失败了
+                        if(called) return;
+                        called = true;
+                        reject(r);  
                 });
             }else{//then是一个普通对象，就直接成功即可
                 resolve(x);
@@ -103,7 +104,6 @@ class Promise {
                         reject(e);
                     }
                 },0)
-
             });
        }
        //当前既没有完成也没有失败
