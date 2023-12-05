@@ -11,9 +11,33 @@ void (async () => {
     console.log(await UT.calElevators(900000))
 })();
 ```
+## introduction under the file
 
-- other links
+- dateFormat.js: regular functions about calculations and formatting of date
+  - relevant library: moment.js,luxon.js
+- eventListener.js: the implement of eventListener
+- promise.js: the implement of promise
+- grammar.js: the difference among  es5, es6, and es7
+- system.js: regular using of system
+
+## popular framework
+
+- [Egg](https://www.eggjs.org/)
+- [Express](https://expressjs.com/)
+- [Next.js](https://nextjs.org/)
+- [Koa](https://koajs.com/)
+
+## popular library
+
+- [Moment](https://www.npmjs.com/package/moment): A JavaScript date library for parsing, validating, manipulating, and formatting dates.
+- [Luxon](https://www.npmjs.com/package/luxon): latest data format library
+- [Got](https://www.npmjs.com/package/got): Human-friendly and powerful HTTP request library for Node.js
+- [Exceljs](https://www.npmjs.com/package/exceljs): Read, manipulate and write spreadsheet data and styles to XLSX and JSON.
+- [mongoose](https://www.npmjs.com/package/mongoose): Mongoose is a MongoDB object modeling tool designed to work in an asynchronous environment. Mongoose supports Node.js and Deno (alpha).
+- [sequelize](https://www.npmjs.com/package/sequelize): an easy-to-use and promise-based Node.js ORM tool for Postgres, MySQL, MariaDB, SQLite, DB2, Microsoft SQL Server, and Snowflake
+
+### other links
   - [eggPluginDemo](https://github.com/oneWalker/egg-pluginDemo)
   - [egg-cos(published one)](https://github.com/oneWalker/egg-cos)
   - [BDMS(in class100.com,based on Sequelzie,eggjs,private)](https://github.com/oneWalker/BDMS_Back)
-  - [TicketSystem(based on Expressjs)](https://github.com/oneWalker/TicketSystem)
+  - [TicketSystem(based on Express)](https://github.com/oneWalker/TicketSystem)
