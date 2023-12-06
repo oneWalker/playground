@@ -35,8 +35,16 @@ void (async () => {
 - [Exceljs](https://www.npmjs.com/package/exceljs): Read, manipulate and write spreadsheet data and styles to XLSX and JSON.
 - [mongoose](https://www.npmjs.com/package/mongoose): Mongoose is a MongoDB object modeling tool designed to work in an asynchronous environment. Mongoose supports Node.js and Deno (alpha).
 - [sequelize](https://www.npmjs.com/package/sequelize): an easy-to-use and promise-based Node.js ORM tool for Postgres, MySQL, MariaDB, SQLite, DB2, Microsoft SQL Server, and Snowflake
+- [lodash](https://lodash.com/) A modern JavaScript utility library delivering modularity, performance & extras.
 
-### other links
+### scaffold
+
+- [backend_nodejs_scaffold](https://github.com/oneWalker/backend_nodejs_scaffold): including the scaffold implement in gRPC, http and graphQL on express
+
+- [core-event-producer](https://github.com/oneWalker/core-event-producer.git): A library to define and use AWS SNS and AWS SQS more convenient 
+
+
+## other links
   - [eggPluginDemo](https://github.com/oneWalker/egg-pluginDemo)
   - [egg-cos(published one)](https://github.com/oneWalker/egg-cos)
   - [BDMS(in class100.com,based on Sequelzie,eggjs,private)](https://github.com/oneWalker/BDMS_Back)
