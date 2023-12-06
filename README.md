@@ -4,7 +4,7 @@ practice in javascript(especially in Node.js), java, python, usage and some thir
 
 - [js & Node.js](https://github.com/oneWalker/playground/tree/master/js)
 
-- [FE](hhttps://github.com/oneWalker/playground/tree/master/FE)
+- [FE](https://github.com/oneWalker/playground/tree/master/FE)
 
 - [Go](https://github.com/oneWalker/playground/tree/master/go)
 
