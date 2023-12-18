@@ -35,7 +35,10 @@ void (async () => {
 - [Exceljs](https://www.npmjs.com/package/exceljs): Read, manipulate and write spreadsheet data and styles to XLSX and JSON.
 - [mongoose](https://www.npmjs.com/package/mongoose): Mongoose is a MongoDB object modeling tool designed to work in an asynchronous environment. Mongoose supports Node.js and Deno (alpha).
 - [sequelize](https://www.npmjs.com/package/sequelize): an easy-to-use and promise-based Node.js ORM tool for Postgres, MySQL, MariaDB, SQLite, DB2, Microsoft SQL Server, and Snowflake
-- [lodash](https://lodash.com/) A modern JavaScript utility library delivering modularity, performance & extras.
+- [lodash](https://lodash.com/): A modern JavaScript utility library delivering modularity, performance & extras.
+- [agenda](https://github.com/agenda/agenda): A light-weight job scheduling library for Node.js
+- [Bull](https://github.com/OptimalBits/bull): The fastest, most reliable, Redis-based queue for Node.
+Carefully written for rock solid stability and atomicity.
 
 ### scaffold
 
