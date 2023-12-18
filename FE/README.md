@@ -10,6 +10,7 @@
 - [React Router](https://reactrouter.com/)
   - https://github.com/reactjs/react-router-tutorial
 - [React Redux](https://react-redux.js.org/)
+  - [React Tutorial](./Learning-Redux-with-Mosh/README.md)
 - [Vue](https://vuejs.org/)
 - [Angular](https://angular.io/)
 - [React Native](https://reactnative.dev/)
