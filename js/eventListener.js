@@ -31,6 +31,14 @@
             }
         }
     },
+    //emit触发事件
+    emit: function(name,...args){
+        if(this.Regsiter.hasOwnProperty(name)){
+            this.Regsiter[name].forEach((callback) => {
+                callback(...args);
+            });
+        }
+    },
 
     //注销事件
     off: function(name, method){
@@ -45,6 +53,14 @@
                 }
             }
         }
+    },
+    //只触发一次的事件
+    once: function(name, method){
+        let handler = function(...args){
+            method.apply(this, ...args);//等价于 method(...args);
+            EventListener.off(name, handler);
+        };
+        EventListener.on(name, handler);
     }
 };
 
