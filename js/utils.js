@@ -37,7 +37,7 @@ class utils{
         return new Promise(resolve => setTimeout(resolve, ms))
     }
     /**
-     * 计算两个经纬度相差的距离,只精确到米
+     * @description 计算两个经纬度相差的距离,只精确到米
      * @param {Number} lng1 第一个经度
      * @param {Number} lat1 第一个维度
      * @param {Number} lng2 第二个经度
@@ -52,6 +52,22 @@ class utils{
 		s = s * 6378137.0; // 取WGS84标准参考椭球中的地球长半径(单位:m)
 		s = Math.round(s);
 		return s;
+    }
+
+    /**
+     * @description 判断字符串中是否存在unicode
+     * @param {string} str 字符串
+     */
+    async isContainUnicode(str){
+        return message.length !== Buffer.byteLength(message, 'utf8');
+    }
+    
+    /**
+     * @description 判断字符串中是否存在unicode
+     * @param {string} str 字符串
+     */
+    async isContainUnicodeWithReg(str){
+        return /[^\x00-\xff]/g.test(str);
     }
 }
 module.exports = utils;
