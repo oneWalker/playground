@@ -1,0 +1,25 @@
+upstream backend {
+    least_conn;
+    server 82.157.206.219:8080;
+    server 152.136.150.31:8080;
+}
+
+#add the rate limit by IP
+limit_req_zone $binary_remote_addr zone=mylimit:10m rate=5r/s;
+
+server {
+    listen 8080 default_server;
+    server_name api.datalogical.com.cn;
+    
+    #apply the limitation to the specific url
+    location /public/login {
+        limit_req zone=mylimit burst=5 nodelay;
+        limit_req_status 429;
+        proxy_pass http://backend;
+    }
+
+    location / {
+        proxy_pass http://backend;
+
+    }
+}
