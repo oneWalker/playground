@@ -10,6 +10,12 @@ limit_req_zone $binary_remote_addr zone=mylimit:10m rate=5r/s;
 server {
     listen 8080 default_server;
     server_name api.datalogical.com.cn;
+
+    #add customized error page
+    error_page 429 = /error.json;
+    location = /error.json {
+        return 200 '{"code": 429, "msg": "Request too many times"}';
+    }
     
     #apply the limitation to the specific url
     location /public/login {
