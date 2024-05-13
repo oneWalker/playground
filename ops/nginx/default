@@ -3,9 +3,16 @@ upstream backend {
     server 82.157.206.219:8080;
     server 152.136.150.31:8080;
 }
+map $request_uri $username {
+     default "";
+     ~^/public/login\?(.*)username=([^&]+) $2;
+}
+
+#add the rate limit by username
+limit_req_zone $username zone=mylimitByName:10m rate=5r/m;
 
 #add the rate limit by IP
-limit_req_zone $binary_remote_addr zone=mylimit:10m rate=5r/s;
+limit_req_zone $binary_remote_addr zone=mylimitByIP:10m rate=5r/s;
 
 server {
     listen 8080 default_server;
@@ -19,7 +26,7 @@ server {
     
     #apply the limitation to the specific url
     location /public/login {
-        limit_req zone=mylimit burst=5 nodelay;
+        limit_req zone=mylimitByIP burst=5 nodelay;
         limit_req_status 429;
         proxy_pass http://backend;
     }
@@ -29,3 +36,7 @@ server {
 
     }
 }
+
+# general commands
+# 1. checking the grammar is ok: nginx -t
+# 2. restart the running nginx: nginx -s reload
