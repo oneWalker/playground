@@ -47,5 +47,7 @@ server {
 }
 
 # general commands
-# 1. checking the grammar is ok: nginx -t
-# 2. restart the running nginx: nginx -s reload
+# 1. checking the grammar is ok: 
+nginx -t
+# 2. restart the running nginx: 
+nginx -s reload
