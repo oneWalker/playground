@@ -10,8 +10,8 @@ Type=simple
 ExecStart=/usr/bin/nohup /usr/bin/java -jar -Dspring.profiles.active=prod /app/ratingsystem-0.0.3-SNAPSHOT.jar
 User=ubuntu
 WorkingDirectory=/app
-StandardOutput=file:/app/logs/ratingsystem.log
-StandardError=file:/app/logs/ratingsystem_error.log
+StandardOutput=append:/app/logs/ratingsystem.log  # attention: use append to avoid the file cannot be split.Otherwise, you can use `file` prefix
+StandardError=append:/app/logs/ratingsystem_error.log
 
 [Install]
 WantedBy=multi-user.target
