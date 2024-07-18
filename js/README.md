@@ -20,6 +20,7 @@ void (async () => {
 - grammar.js: the difference among  es5, es6, and es7
 - system.js: regular using of system
 - stateMachine.ts: the implement demo of state machine. visualization url: https://stately.ai/viz 
+  - `cond` usagehttps://egghead.io/lessons/xstate-conditionally-transition-to-states-with-guards-in-xstate
 
 ## popular framework
 
