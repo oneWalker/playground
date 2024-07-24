@@ -17,10 +17,12 @@ void (async () => {
   - relevant library: moment.js,luxon.js
 - eventListener.js: the implement of eventListener
 - promise.js: the implement of promise
-- grammar.js: the difference among  es5, es6, and es7
+- grammar.js: the differences among  es5, es6, and es7
 - system.js: regular using of system
-- stateMachine.ts: the implement demo of state machine. visualization url: https://stately.ai/viz 
+- stateMachine.ts: the usage cases of state machine. visualization url: https://stately.ai/viz 
   - `cond` usagehttps://egghead.io/lessons/xstate-conditionally-transition-to-states-with-guards-in-xstate
+  - example: https://stately.ai/viz/6766baf5-d51c-4117-9547-c4f4f8da527c
+- [ ] stateMachineImp.ts: the implementation of state machine 
 
 ## popular framework
 

@@ -1,3 +1,4 @@
+// 引入xstate v5 examples
 import * as XState from 'xstate';
 
 export enum CampaignEventType {
@@ -15,17 +16,11 @@ export enum CampaignStatus {
     PENDING_ACTIVATION = 4, // 新增状态
 }
 
-type CampaignStateMachineEvent = { type: keyof typeof CampaignEventType };
-type CampaignStateMachineStates = { value: keyof typeof CampaignStatus; context: any };
-const stateMachine = XState.createMachine<
-    any,
-    CampaignStateMachineEvent,
-    CampaignStateMachineStates
->(
+const stateMachine = XState.createMachine(
     {
         initial: CampaignStatus[CampaignStatus.DRAFT],
         on: {
-            [CampaignEventType.INVALIDATE]: CampaignStatus[CampaignStatus.SUSPENDED],
+            [CampaignEventType.INVALIDATE]: `.${CampaignStatus[CampaignStatus.SUSPENDED]}`,
         },
         states: {
             [CampaignStatus[CampaignStatus.DRAFT]]: {
@@ -80,7 +75,11 @@ const getNextStatus = (
     event: CampaignEventType,
     context: any,
 ): CampaignStatus => {
-    const nextState = stateMachine.transition(CampaignStatus[status], event, context);
+    const nextState = XState.getNextSnapshot(
+        stateMachine,
+        stateMachine.resolveState({ value: CampaignStatus[status] }),
+        { type: event },
+    );
     const nextStatus = CampaignStatus[nextState.value as keyof typeof CampaignStatus] ?? status;
     return nextStatus;
 };
