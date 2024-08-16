@@ -34,7 +34,7 @@ server {
     location /public/login {
         limit_req zone=mylimitByIP burst=5 nodelay;
         limit_req_status 429;
-        proxy_pass http://backend;
+        proxy_pass http://backend; # add suffix path `/_stcore/stream` when it's not a staitc one
     }
 
     #apply the limitation to the token in header
