@@ -12,3 +12,11 @@ cp $source_ $target_
  
 # step2.
 cat /dev/null > $source_
+
+# dont use .sh file
+0 0 * * * cp /app/logs/ratingsystem.log /app/logs/ratingsystem_$(date +\%Y\%m\%d).log && cat /dev/null >  /app/logs/ratingsystem.log
+
+# if the script have the permission problem, we can change the permission and the owner of the file
+#7 write,read and execute permission for the owner, group and others,6 read and write permission for the owner, group and others,5 read and execute permission for the owner, group and others
+sudo chown ubuntu:ubuntu /app/logs/ratingsystem.log 
+sudo chmod 777 /app/logs/ratingsystem.log 
