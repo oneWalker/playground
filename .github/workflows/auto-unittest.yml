@@ -2,9 +2,9 @@ name: Run tests
 
 on:
   push:
-    branches: [ cur-publish, master ]
+    # branches: [ cur-publish, master ]
   pull_request:
-    branches: [ master, cur-publish ]
+    # branches: [ master, cur-publish ]
 
 jobs:
   build:
