@@ -1,10 +1,10 @@
 name: Sync Registry
 on: 
   push:
-    branches: ['main']
+    branches: ['master']
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  build-with-arm64:
+    runs-on: macos-latest
     steps:
     - name: Sync From Docker Hub to Aliyun
       uses: onichandame/docker-registry-sync-action@master
