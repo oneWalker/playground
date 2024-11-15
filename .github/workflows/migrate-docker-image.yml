@@ -17,7 +17,7 @@ jobs:
         target_password: ${{ secrets.KESCI_ALIYUN_PASSWORD }}
 
   build-with-amd64:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
     - name: Sync From Docker Hub to Aliyun
       uses: onichandame/docker-registry-sync-action@master
