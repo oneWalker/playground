@@ -4,8 +4,12 @@ on:
     branches: ['master']
 jobs:
   build-with-arm64:
-    runs-on: Ubuntu 24.04 by Arm Limited
+    runs-on: ubuntu-latest
     steps:
+    - name: Setup QEMU
+      uses: docker/setup-qemu-action@v2
+      with:
+        platforms: arm64 
     - name: Sync From Docker Hub to Aliyun
       uses: onichandame/docker-registry-sync-action@master
       with:
