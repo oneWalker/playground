@@ -3,13 +3,35 @@ on:
   push:
     branches: ['master']
 jobs:
+  build-with-arm64:
+    runs-on: macos-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Install Docker
+      run: |
+        brew install --cask docker
+        open /Applications/Docker.app
+        sleep 10  # Wait for Docker to start
+    - name: Sync From Docker Hub to Aliyun
+      uses: onichandame/docker-registry-sync-action@master
+      with:
+        source_repository: docker.io/tonistiigi/binfmt:qemu-v8.1.5
+        source_username: ${{ secrets.DOCKER_USERNAME }}
+        source_password: ${{ secrets.DOCKER_PASSWORD }}
+        target_repository: heywhale-registry.cn-shanghai.cr.aliyuncs.com/aliyun-kesci/tonistiigi/binfmt:qemu-v8.1.5-amd64
+        target_username: ${{ secrets.KESCI_ALIYUN_USERNAME }}
+        target_password: ${{ secrets.KESCI_ALIYUN_PASSWORD }}
+    
   build-with-amd64:
     runs-on: ubuntu-latest
     steps:
     - name: Sync From Docker Hub to Aliyun
       uses: onichandame/docker-registry-sync-action@master
       with:
-        source_repository: docker.io/tonistiigi/binfmt:latest
+        source_repository: docker.io/tonistiigi/binfmt:qemu-v8.1.5
         source_username: ${{ secrets.DOCKER_USERNAME }}
         source_password: ${{ secrets.DOCKER_PASSWORD }}
         target_repository: heywhale-registry.cn-shanghai.cr.aliyuncs.com/aliyun-kesci/tonistiigi/binfmt:qemu-v8.1.5-amd64
