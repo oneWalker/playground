@@ -3,19 +3,6 @@ on:
   push:
     branches: ['master']
 jobs:
-  build-with-arm64:
-    runs-on: macos-latest
-    steps:
-    - name: Sync From Docker Hub to Aliyun
-      uses: onichandame/docker-registry-sync-action@master
-      with:
-        source_repository: docker.io/tonistiigi/binfmt:qemu-v8.1.5
-        source_username: ${{ secrets.DOCKER_USERNAME }}
-        source_password: ${{ secrets.DOCKER_PASSWORD }}
-        target_repository: heywhale-registry.cn-shanghai.cr.aliyuncs.com/aliyun-kesci/tonistiigi/binfmt:qemu-v8.1.5-arm64
-        target_username: ${{ secrets.KESCI_ALIYUN_USERNAME }}
-        target_password: ${{ secrets.KESCI_ALIYUN_PASSWORD }}
-
   build-with-amd64:
     runs-on: ubuntu-latest
     steps:
