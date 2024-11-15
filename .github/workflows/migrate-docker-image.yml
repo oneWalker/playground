@@ -4,22 +4,8 @@ on:
     branches: ['master']
 jobs:
   build-with-arm64:
-    runs-on: macos-latest
-
+    runs-on: Ubuntu 24.04 by Arm Limited
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-
-    - name: Enable Gatekeeper
-      run: sudo spctl --master-enable
-
-    - name: Install Docker
-      run: |
-        brew install --cask docker
-        open /Applications/Docker.app
-        sleep 30  # Wait for Docker to start
-        docker --version  # Verify Docker installation
-        
     - name: Sync From Docker Hub to Aliyun
       uses: onichandame/docker-registry-sync-action@master
       with:
