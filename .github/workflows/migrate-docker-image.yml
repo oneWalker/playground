@@ -10,11 +10,16 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
+    - name: Enable Gatekeeper
+      run: sudo spctl --master-enable
+
     - name: Install Docker
       run: |
         brew install --cask docker
         open /Applications/Docker.app
-        sleep 10  # Wait for Docker to start
+        sleep 30  # Wait for Docker to start
+        docker --version  # Verify Docker installation
+        
     - name: Sync From Docker Hub to Aliyun
       uses: onichandame/docker-registry-sync-action@master
       with:
