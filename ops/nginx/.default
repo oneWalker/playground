@@ -36,6 +36,11 @@ server {
         limit_req_status 429;
         proxy_pass http://backend; # add suffix path `/_stcore/stream` when it's not a staitc one
     }
+    
+    # apply the special path to redirect url.for example, redirect '/external/pugongying/*' to 'specialIp:specialPort'
+    location /external/pugongying/ {
+        proxy_pass http://specialIp:specialPort;
+    }
 
     #apply the limitation to the token in header
     location / {
