@@ -39,7 +39,7 @@ server {
     
     # apply the special path to redirect url.for example, redirect '/external/pugongying/*' to 'specialIp:specialPort'
     location /external/pugongying/ {
-        proxy_pass http://specialIp:specialPort;
+        proxy_pass http://specialIp:specialPort/;
     }
 
     #apply the limitation to the token in header
@@ -56,3 +56,5 @@ server {
 nginx -t
 # 2. restart the running nginx: 
 nginx -s reload
+
+# Tips: nginx need to work with `systemctl restart nginx` not `systemctl reload nginx`
